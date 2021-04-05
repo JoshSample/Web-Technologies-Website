@@ -1,0 +1,112 @@
+﻿body {
+    background-color: #5E0E03;
+    background-image: url(images/home/bg_head2.bmp);
+    background-size: cover
+}
+
+
+.solid {
+    border-style: solid;
+    border-width: medium;
+    color: black;
+}
+
+.heading {
+    font-family: Script MT;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+}
+
+.menu_bar {
+    left: 100px;
+    top: 83px;
+    width: 100em;
+    z-index: 2;
+}
+
+.menu1 {
+    font-family: arial;
+    font-weight: bold;
+    font-size: medium;
+    color: white;
+    border: 2px solid rgb(0,0,0);
+    text-align: center;
+    width: 10em;
+    float: left;
+    background-color: rgb(124,14,3);
+    z-index: 3;
+}
+
+.menu1:hover a {
+     display: block
+}
+
+    .menu1 a {
+        display: none;
+        border-top: 2px solid black;
+        background-color: rgb(124,14,3);
+        width: 10em;
+        text-decoration: none;
+        color: white;
+        z-index: 4;
+    }
+
+        .menu1 a:hover {
+            color: #ff0000;
+            background-color: rgb(94,14,3);
+            z-index: 5;
+        }
+
+.leftSide {
+    float: left;
+    width: 20%;
+    margin-top: 100px;
+    position: absolute;
+    font-family: 'Script MT';
+}
+
+.absolute_front1 {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    z-index: 3;
+    font-size: 20pt;
+    color: blue;
+}
+
+.absolute_front2 {
+    position: absolute;
+    top: 200px;
+    left: 50px;
+    z-index: 4;
+    font-size: 20pt;
+    color: blue;
+}
+
+.absolute_front3 {
+    position: absolute;
+    top: 400px;
+    left: 50px;
+    z-index: 5;
+    font-size: 20pt;
+    color: blue;
+}
+
+.missionStatement {
+    background-color: #CCCCCC;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    margin-top: 100px;
+}
+
+.rightSide {
+    background-color: white;
+    position: absolute;
+    right: 0;
+    margin-top: 150px;
+    font-family: Arial;
+    text-align: center;
+}
