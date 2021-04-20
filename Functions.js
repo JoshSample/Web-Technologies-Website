@@ -659,6 +659,64 @@ function checkoutCart() {
     td1.setAttribute("colspan", "4");
 }
 
+// get cookie and output data to checkout.html
+function loadCheckout() {
+    //Unescape cookies - only necessary if used escape
+    var my_cookies = unescape(document.cookie);
+    //Split cookie up based on ;
+    var cookie_array = my_cookies.split(";");
+    if (cookie_array[0] == "XDEBUG_SESSION=test") {
+        var cookie_val = cookie_array[1].split(",");
+        var newrow = document.getElementById("table").insertRow(0);
+        var newtd0 = newrow.insertCell(-1);
+        newtd0.align = "center";
+        newtd0.width = 100;
+        newtd0.innerHTML = "<img src=" + cookie_val[2] + ">";
+        var newrow1 = document.getElementById("table").insertRow(1);
+        var newtd1a = newrow1.insertCell(-1);
+        newtd1a.align = "center";
+        var item = cookie_val[0].split("=");
+        newtd1a.innerHTML = "<h1 style='font-size: 200 %'>" + item[0] + "</h1>";
+        var newrow2 = document.getElementById("table").insertRow(-1);
+        var newtd1a = newrow2.insertCell(-1);
+        newtd1a.align = "center";
+        newtd1a.innerHTML = "<h2 style='font-size: 200 %' name='quantity'>Quantity: " + cookie_val[1] + "</h2>";
+        var newrow3 = document.getElementById("table").insertRow(-1);
+        var newtd1a = newrow3.insertCell(-1);
+        newtd1a.align = "center";
+        newtd1a.innerHTML = "<h2 style='font-size: 200 %'>Price: $" + item[1] + "</h2>";
+        var newrow4 = document.getElementById("table").insertRow(-1);
+        var newtd1a = newrow4.insertCell(-1);
+        newtd1a.align = "center";
+        newtd1a.innerHTML = "<h2 style='font-size: 200 %'>Total: $" + (parseInt(item[1]) * parseInt(cookie_val[1])) + "</h2>";
+    }
+    else {
+        var cookie_val = cookie_array[0].split(",");
+        var newrow = document.getElementById("table").insertRow(0);
+        var newtd0 = newrow.insertCell(-1);
+        newtd0.align = "center";
+        newtd0.width = 100;
+        newtd0.innerHTML = "<img src=" + cookie_val[2] + ">";
+        var newrow1 = document.getElementById("table").insertRow(1);
+        var newtd1a = newrow1.insertCell(-1);
+        newtd1a.align = "center";
+        var item = cookie_val[0].split("=");
+        newtd1a.innerHTML = "<h1 style='font-size: 200 %'>" + item[0] + "</h1>";
+        var newrow2 = document.getElementById("table").insertRow(-1);
+        var newtd1a = newrow2.insertCell(-1);
+        newtd1a.align = "center";
+        newtd1a.innerHTML = "<h2 style='font-size: 200 %'>Quantity: " + cookie_val[1] + "</h2>";
+        var newrow3 = document.getElementById("table").insertRow(-1);
+        var newtd1a = newrow3.insertCell(-1);
+        newtd1a.align = "center";
+        newtd1a.innerHTML = "<h2 style='font-size: 200 %'>Price: $" + item[1] + "</h2>";
+        var newrow4 = document.getElementById("table").insertRow(-1);
+        var newtd1a = newrow4.insertCell(-1);
+        newtd1a.align = "center";
+        newtd1a.innerHTML = "<h2 style='font-size: 200 %'>Total: $" + (parseInt(item[1]) * parseInt(cookie_val[1])) + "</h2>";
+    }
+}
+
 var pics = new Array(10);
 pics[0] = "images/home/0.jpg";
 pics[1] = "images/home/1.jpg";
