@@ -121,31 +121,43 @@ $res = mysqli_query($database, $query);
         }
     </style>
     <script type="text/javascript">
-    // Countdown timer for redirecting to another URL after several seconds
+        // Countdown timer for redirecting to another URL after several seconds
 
-    var seconds = 15; // seconds for HTML
-    var foo; // variable for clearInterval() function
+        var seconds = 15; // seconds for HTML
+        var foo; // variable for clearInterval() function
 
-    function redirect() {
-        document.location.href = 'index.html';
-    }
-
-    function updateSecs() {
-        document.getElementById("seconds").innerHTML = seconds;
-        seconds--;
-        if (seconds == -1) {
-            clearInterval(foo);
-            redirect();
+        function redirect() {
+            document.location.href = 'index.html';
         }
-    }
 
-    function countdownTimer() {
-        foo = setInterval(function () {
-            updateSecs()
-        }, 1000);
-    }
+        function updateSecs() {
+            document.getElementById("seconds").innerHTML = seconds;
+            seconds--;
+            if (seconds == -1) {
+                clearInterval(foo);
+                redirect();
+            }
+        }
 
-    countdownTimer();
+        function countdownTimer() {
+            foo = setInterval(function () {
+                updateSecs()
+            }, 1000);
+        }
+
+        function deleteAllCookies() {
+            var cookies = document.cookie.split(";");
+
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                var eqPos = cookie.indexOf("=");
+                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            }
+        }
+
+        deleteAllCookies();
+        countdownTimer();
     </script>
 </head>
 <body style="text-align:center; background-color:lightskyblue">
